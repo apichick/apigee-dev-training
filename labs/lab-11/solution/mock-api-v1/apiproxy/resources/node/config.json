@@ -1,0 +1,14 @@
+{
+    "mockDirectory": "./mocks",
+    "quiet": false,
+    "port": "8080",
+    "logRequestHeaders": false,
+    "webServices": {
+        "books/:bookId": {
+            "verbs": ["get"],
+            "enableTemplate": true,
+            "mockFile": "book.xml",
+            "contentType": "application/xml"
+        }
+    }
+}

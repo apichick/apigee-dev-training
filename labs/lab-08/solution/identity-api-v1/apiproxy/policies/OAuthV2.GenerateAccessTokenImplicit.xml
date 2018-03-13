@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OAuthV2.GenerateAccessTokenImplicit">
+    <Operation>GenerateAccessTokenImplicitGrant</Operation>
+    <GenerateResponse enabled="false"/>
+    <ClientId>request.formparam.client_id</ClientId>
+    <ResponseType>request.formparam.response_type</ResponseType>
+    <Scope>request.formparam.scope</Scope>
+</OAuthV2>

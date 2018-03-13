@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <DefaultFaultRule>
+        <AlwaysEnforce>true</AlwaysEnforce>
+        <Step>
+            <Name>AssignMessage.Error.InternalServerError</Name>
+            <Condition>flow.error.code = NULL</Condition>
+        </Step>
+        <Step>
+            <Name>RaiseFault.JSON</Name>
+        </Step>
+    </DefaultFaultRule>
+    <PreFlow>
+        <Response>
+            <Step>
+                <Name>XMLToJSON</Name>
+            </Step>
+            <Step>
+                <Name>Javascript.TransformJSON</Name>
+            </Step>
+            <Step>
+                <Name>ResponseCache</Name>
+            </Step>
+            <Step>
+                <Name>AssignMessage.AddCors</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <HTTPTargetConnection>
+        <URL>https://apigee-dev-training.appspot.com/library/v1</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

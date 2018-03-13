@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="book-api-v1">
+    <Description>Book API v1</Description>
+</APIProxy>

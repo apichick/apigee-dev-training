@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.BuildValidateResponse">
+    <AssignTo createNew="false" transport="http" type="response"/>
+    <Set>
+        <Payload contentType="application/json">{
+    "client_id": "{verifyapikey.VerifyAPIKey.client_id}",
+    "redirect_uri": "{verifyapikey.VerifyAPIKey.redirection_uris}",
+    "app_name": "{verifyapikey.VerifyAPIKey.developer.app.name}"
+}</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+</AssignMessage>

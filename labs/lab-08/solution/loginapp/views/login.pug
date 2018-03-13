@@ -1,0 +1,34 @@
+extends layout
+
+block content
+
+	#login.center-vertical
+		form.well(id='form-login', method='post', action='/validate')
+			h2 Hello!
+			h6 Please Login To Your Account
+			input(type='hidden', name='client_id', value=client_id)
+			input(type='hidden', name='app_name', value=app_name)
+			input(type='hidden', name='redirect_uri', value=redirect_uri)
+			input(type='hidden', name='scope', value=scope)
+			input(type='hidden', name='state', value=state)
+			.form-group
+				label Username
+				input.form-control(type='text', id='user-tf', name='user')
+			.form-group
+				label Password
+				input.form-control(type='password', id='pass-tf', name='pass')
+			.controls
+				button(type='button').btn.btn-default.button-rememember-me
+					span.glyphicon.glyphicon-unchecked.button-rememember-me-glyph
+					| Remember Me
+				button(type='submit').btn.btn-primary.button-sign-in
+					span.glyphicon.glyphicon-lock
+					| Sign In
+			.clearfix
+			hr
+			.btm-links
+				#forgot-password
+					a(href='#') Forgot Your Password?
+				#create-account
+					a(href='/signup') Create An Account
+			.clearfix

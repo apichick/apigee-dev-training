@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KeyValueMapOperations.ReadConfiguration</Name>
+            </Step>
+            <Step>
+                <Name>VerifyAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>AssignMessage.RemoveAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>ResponseCache</Name>
+            </Step>
+        </Request>
+    </PreFlow>
+    <Flows>
+        <Flow name="getBooks">
+            <Condition>request.verb = "GET" AND proxy.pathsuffix MatchesPath "/books"</Condition>
+        </Flow>
+        <Flow name="searchBooks">
+            <Condition>request.verb = "GET" AND proxy.pathsuffix MatchesPath "/books/search"</Condition>
+        </Flow>
+        <Flow name="getBookById">
+            <Condition>request.verb = "GET" AND proxy.pathsuffix MatchesPath "/books/*"</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/book/v1</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

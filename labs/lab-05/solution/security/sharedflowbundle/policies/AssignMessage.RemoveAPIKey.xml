@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.RemoveAPIKey">
+    <AssignTo createNew="false" transport="http" type="request"/>
+    <Remove>
+        <QueryParams>
+            <QueryParam name="apikey"/>
+        </QueryParams>
+    </Remove>
+</AssignMessage>

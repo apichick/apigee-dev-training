@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ResponseCache async="false" continueOnError="false" enabled="true" name="ResponseCache">
+    <CacheKey>
+        <KeyFragment ref="message.uri"/>
+    </CacheKey>
+    <CacheResource>book-api-v1-response-cache</CacheResource>
+    <ExpirySettings>
+        <TimeoutInSec ref="config.cacheEntryExpiry">300</TimeoutInSec>
+    </ExpirySettings>
+    <ExcludeErrorResponse>true</ExcludeErrorResponse>
+</ResponseCache>

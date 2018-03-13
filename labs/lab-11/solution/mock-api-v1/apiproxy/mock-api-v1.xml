@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy name="mock-api-v1">
+	<Description>Mock API (v1)</Description>
+</APIProxy>

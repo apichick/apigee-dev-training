@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <FaultRules>
+        <FaultRule name="Unauthorized">
+            <Step>
+                <Name>AssignMessage.Error.Unauthorized</Name>
+            </Step>
+            <Condition>fault.name = "InvalidApiKey" OR fault.name = "FailedToResolveAPIKey" OR fault.name = "InvalidClientIdentifier" OR fault.name = "invalid_client"</Condition>
+        </FaultRule>
+    </FaultRules>
+    <DefaultFaultRule>
+        <AlwaysEnforce>true</AlwaysEnforce>
+        <Step>
+            <Name>AssignMessage.Error.InternalServerError</Name>
+            <Condition>flow.error.code = NULL</Condition>
+        </Step>
+        <Step>
+            <Name>RaiseFault.JSON</Name>
+        </Step>
+    </DefaultFaultRule>
+    <Flows>
+        <Flow name="Generate Access Token (Client Credentials)">
+            <Request>
+                <Step>
+                    <Name>OAuthV2.GenerateAccessToken</Name>
+                </Step>
+            </Request>
+            <Condition>request.verb = "POST" AND proxy.pathsuffix = "/token" AND request.formparam.grant_type = "client_credentials"</Condition>
+        </Flow>
+        <Flow name="Validate Client">
+            <Request>
+                <Step>
+                    <Name>OAuthV2.VerifyAccessToken</Name>
+                </Step>
+                <Step>
+                    <Name>ExtractVariables.ValidateClientRequest</Name>
+                </Step>
+                <Step>
+                    <Name>VerifyAPIKey</Name>
+                </Step>
+                <Step>
+                    <Name>AssignMessage.Error.InvalidRedirectUri</Name>
+                    <Condition>redirectUri != verifyapikey.VerifyAPIKey.redirection_uris</Condition>
+                </Step>
+                <Step>
+                    <Name>RaiseFault.GoToFaultRules</Name>
+                    <Condition>flow.error.code != NULL</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AssignMessage.BuildValidateResponse</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb = "POST" AND proxy.pathsuffix = "/validate"</Condition>
+        </Flow>
+        <Flow name="Generate Access Token (Implicit)">
+            <Request>
+                <Step>
+                    <Name>OAuthV2.VerifyAccessToken</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>OAuthV2.GenerateAccessTokenImplicit</Name>
+                </Step>
+                <Step>
+                    <Name>AssignMessage.GenerateAccessTokenImplicit</Name>
+                </Step>
+            </Response>        
+            <Condition>request.verb = "POST" AND proxy.pathsuffix = "/implicit"</Condition>
+        </Flow>
+        <Flow name="resourceNotFound">
+            <Request>
+                <Step>
+                    <Name>AssignMessage.Error.ResourceNotFound</Name>
+                </Step>
+                <Step>
+                    <Name>RaiseFault.GoToFaultRules</Name>
+                </Step>
+            </Request>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/identity/v1</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default"/>
+</ProxyEndpoint>

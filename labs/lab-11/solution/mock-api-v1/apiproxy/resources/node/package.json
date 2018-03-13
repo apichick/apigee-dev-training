@@ -1,0 +1,14 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "9.x"
+  },
+  "dependencies": {
+    "apimocker": "^0.5.1"
+  }
+}

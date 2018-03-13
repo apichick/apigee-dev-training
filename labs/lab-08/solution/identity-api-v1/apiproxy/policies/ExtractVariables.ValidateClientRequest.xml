@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables name="ExtractVariables.ValidateClientRequest">
+   <Source>request</Source>
+   <JSONPayload>
+      <Variable name="clientId" type="string">
+         <JSONPath>$.client_id</JSONPath>
+      </Variable>
+      <Variable name="redirectUri" type="string">
+         <JSONPath>$.redirect_uri</JSONPath>
+      </Variable>
+   </JSONPayload>
+</ExtractVariables>

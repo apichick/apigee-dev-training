@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+	#consent.center-vertical
+		form.well(id='form-login', method='post', action='consent')
+			h2 Consent
+			h6 The application #{app_name} is requesting access
+			input(type='hidden', name='client_id', value=client_id)
+			input(type='hidden', name='redirect_uri', value=redirect_uri)
+			input(type='hidden', name='state', value=state)
+			input(type='hidden', name='requestedScopes', value=scope)
+			if scope
+				h6 Scopes:
+				each s, index in scope.split(" ")
+					.checkbox
+					label(for="checkbox") 
+					input(type="checkbox", name="scope", value=s, checked=true)
+					|   #{s}
+			.controls
+				button(type='submit', name='submit', value='reject').btn.btn-default.button-reject
+					span.glyphicon.glyphicon-unchecked.button-reject-glyph
+					| Reject
+				button(type='submit', name='submit', value='accept').btn.btn-primary.button-accept
+					span.glyphicon.glyphicon-lock
+					| Accept
+			.clearfix

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<authors>
+    <author>
+        <books>
+            <book>
+                <id>121b4bb3-c971-4080-b230-571148b71969</id>
+                <price>$18.2</price>
+                <publisher>Penguin</publisher>
+                <title>Northanger Abbey</title>
+                <year>1814</year>
+            </book>
+        </books>
+        <dateOfBirth>1775-12-16</dateOfBirth>
+        <dateOfDeath>1817-07-18</dateOfDeath>
+        <id>3960590c-bdd1-4e6b-9e7b-383f3314a4aa</id>
+        <name>Jane Austen</name>
+        <placeOfBirth>Steventon, United Kingdom</placeOfBirth>
+        <placeOfDeath>Winchester, United Kingdom</placeOfDeath>
+    </author>
+    <author>
+        <books>
+            <book>
+                <id>ea4b210e-04ef-43c8-a2e0-f7f70b4f787e</id>
+                <price>$12.7</price>
+                <publisher>Penguin</publisher>
+                <title>War and Peace</title>
+                <year>1865</year>
+            </book>
+            <book>
+                <id>d9856d93-9d77-4506-aa93-1019df552d40</id>
+                <price>$13.5</price>
+                <publisher>Penguin</publisher>
+                <title>Anna Karenina</title>
+                <year>1875</year>
+            </book>
+        </books>
+        <dateOfBirth>1828-09-09</dateOfBirth>
+        <dateOfDeath>1910-11-20</dateOfDeath>
+        <id>1f5c7451-4674-4cf4-9540-7656660dc8a0</id>
+        <name>Leo Tolstoy</name>
+        <placeOfBirth>Yasnaya Polyana, Russia</placeOfBirth>
+        <placeOfDeath>Lev Tolstoy, Russia</placeOfDeath>
+    </author>
+    <author>
+        <books>
+            <book>
+                <id>401be4f4-9025-48fb-a409-ac8b099d87ce</id>
+                <price>$25</price>
+                <publisher>Harcourt Brace</publisher>
+                <title>Mrs. Dalloway</title>
+                <year>1925</year>
+            </book>
+            <book>
+                <id>743dcb5d-feba-4505-b367-ee1ceeca5eb7</id>
+                <price>$29</price>
+                <publisher>Penguin</publisher>
+                <title>A Room of One's Own</title>
+                <year>1922</year>
+            </book>
+        </books>
+        <dateOfBirth>1882-01-25</dateOfBirth>
+        <dateOfDeath>1941-03-28</dateOfDeath>
+        <id>a094ff6e-0637-4bf4-aa83-966135036ed5</id>
+        <name>Virginia Wolf</name>
+        <placeOfBirth>London, United Kingdom</placeOfBirth>
+        <placeOfDeath>Lewes, United Kingdom</placeOfDeath>
+    </author>
+    <author>
+        <books>
+            <book>
+                <id>1ee24d22-4066-4faa-a8e7-302e22979be2</id>
+                <price>$12.35</price>
+                <publisher>Penguin</publisher>
+                <title>Huckleberry Finn</title>
+                <year>1865</year>
+            </book>
+            <book>
+                <id>9ac0ff61-7d04-4281-95e6-02221075dd67</id>
+                <price>$7.75</price>
+                <publisher>Random House</publisher>
+                <title>Tom Swayer</title>
+                <year>1862</year>
+            </book>
+        </books>
+        <dateOfBirth>1835-11-30</dateOfBirth>
+        <dateOfDeath>1910-04-21</dateOfDeath>
+        <id>d662f4cf-9da4-4c3e-81be-ebdc4d2d4481</id>
+        <name>Mark Twain</name>
+        <placeOfBirth>Florida, Missouri, United States</placeOfBirth>
+        <placeOfDeath>Redding, Connecticut, United States</placeOfDeath>
+    </author>
+    <author>
+        <books>
+            <book>
+                <id>f26217c6-0d1f-4223-b710-be53d75db249</id>
+                <price>$19.95</price>
+                <publisher>Harcourt Brace</publisher>
+                <title>Harry Potter and the Sorcerer's Stone</title>
+                <year>2000</year>
+            </book>
+        </books>
+        <dateOfBirth>1927-03-06</dateOfBirth>
+        <dateOfDeath>2014-04-17</dateOfDeath>
+        <id>ecf2981d-5529-487e-ae1c-44dc9afb0cfb</id>
+        <name>Gabriel García Márquez</name>
+        <placeOfBirth>Arataca, Colombia</placeOfBirth>
+        <placeOfDeath>Mexico City, Mexico</placeOfDeath>
+    </author>
+    <author>
+        <books>
+            <book>
+                <id>3986a7e7-e099-433f-95c8-bf3563bfce13</id>
+                <price>$14.00</price>
+                <publisher>Harper  Perennial</publisher>
+                <title>One Hundred Years of Solitude</title>
+                <year>1967</year>
+            </book>
+        </books>
+        <dateOfBirth>1965-07-31</dateOfBirth>
+        <id>c21c02fa-c629-4cfa-95a3-43af8cbf9e64</id>
+        <name>J.K. Rowling</name>
+        <placeOfBirth>Yate, United Kingdom</placeOfBirth>
+    </author>
+</authors>

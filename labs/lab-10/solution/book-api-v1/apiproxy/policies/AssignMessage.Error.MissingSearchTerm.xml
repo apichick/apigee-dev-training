@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.Error.MissingSearchTerm">
+  <AssignVariable>
+    <Name>flow.error.message</Name>
+    <Value>Missing search term</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.code</Name>
+    <Value>400.01.001</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.status</Name>
+    <Value>400</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.info</Name>
+    <Value>http://documentation</Value>
+  </AssignVariable>
+</AssignMessage>

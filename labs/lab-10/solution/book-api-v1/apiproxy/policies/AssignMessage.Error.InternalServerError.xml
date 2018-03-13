@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.Error.InternalServerError">
+  <AssignVariable>
+    <Name>flow.error.message</Name>
+    <Value>Proxy internal server error</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.code</Name>
+    <Value>500.01.001</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.status</Name>
+    <Value>500</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.info</Name>
+    <Value>http://documentation</Value>
+  </AssignVariable>
+</AssignMessage>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StatisticsCollector async="false" continueOnError="false" enabled="true" name="StatisticsCollector.Book">
+    <Statistics>
+        <Statistic name="bookId" ref="bookId" type="string"/>
+        <Statistic name="bookTitle" ref="bookTitle" type="string"/>
+        <Statistic name="bookPrice" ref="bookPrice" type="float"/>
+    </Statistics>
+</StatisticsCollector>

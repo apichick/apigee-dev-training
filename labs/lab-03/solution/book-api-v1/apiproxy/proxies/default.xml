@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <FaultRules>
+        <FaultRule name="Unauthorized">
+            <Step>
+                <Name>AssignMessage.Error.Unauthorized</Name>
+            </Step>
+            <Condition>fault.name = "InvalidApiKey" OR fault.name = "FailedToResolveAPIKey"</Condition>
+        </FaultRule>
+    </FaultRules>
+    <DefaultFaultRule>
+        <AlwaysEnforce>true</AlwaysEnforce>
+        <Step>
+            <Name>AssignMessage.Error.InternalServerError</Name>
+            <Condition>flow.error.code = NULL</Condition>
+        </Step>
+        <Step>
+            <Name>RaiseFault.JSON</Name>
+        </Step>
+    </DefaultFaultRule>
+    <PreFlow>
+        <Request>
+            <Step>
+                <Name>KeyValueMapOperations.ReadConfiguration</Name>
+            </Step>
+            <Step>
+                <Name>VerifyAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>AssignMessage.RemoveAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>ResponseCache</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="getBooks">
+            <Condition>request.verb = "GET" AND proxy.pathsuffix MatchesPath "/books"</Condition>
+        </Flow>
+        <Flow name="searchBooks">
+            <Request>
+                <Step>
+                    <Name>AssignMessage.Error.MissingSearchTerm</Name>
+                    <Condition>request.queryparam.q = NULL</Condition>
+                </Step>
+                <Step>
+                    <Name>RaiseFault.GoToFaultRules</Name>
+                    <Condition>flow.error.code != NULL</Condition>
+                </Step>
+            </Request>
+            <Condition>request.verb = "GET" AND  proxy.pathsuffix MatchesPath "/books/search"</Condition>
+        </Flow>
+        <Flow name="getBookById">
+            <Response>
+                <Step>
+                    <Name>Javascript.ParseBookResponse</Name>
+                </Step>
+                <Step>
+                    <Name>StatisticsCollector.Book</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb = "GET" AND proxy.pathsuffix MatchesPath "/books/*"</Condition>
+        </Flow>
+        <Flow name="resourceNotFound">
+            <Request>
+                <Step>
+                    <Name>AssignMessage.Error.ResourceNotFound</Name>
+                </Step>
+                <Step>
+                    <Name>RaiseFault.GoToFaultRules</Name>
+                </Step>
+            </Request>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/book/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

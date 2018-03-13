@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.Error.ResourceNotFound">
+  <AssignVariable>
+    <Name>flow.error.message</Name>
+    <Value>Resource not found</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.code</Name>
+    <Value>404.01.001</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.status</Name>
+    <Value>404</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.error.info</Name>
+    <Value>http://documentation</Value>
+  </AssignVariable>
+</AssignMessage>

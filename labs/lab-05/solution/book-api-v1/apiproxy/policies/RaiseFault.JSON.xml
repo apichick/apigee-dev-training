@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault name="RaiseFault.JSON">
+  <FaultResponse>
+    <Set>
+      <Headers>
+        <Header name="Content-Type">application/json;charset=UTF-8</Header>
+      </Headers>
+      <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">{
+  "code": "@flow.error.code#",
+  "message": "@flow.error.message#",
+  "info":"@flow.error.info#"
+}</Payload>
+      <StatusCode>{flow.error.status}</StatusCode>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

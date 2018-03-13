@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f2f9fe;
+  background: -moz-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%) /* FF3.6+ */;
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f2f9fe), color-stop(100%, #d6f0fd)) /* Chrome,Safari4+ */;
+  background: -webkit-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%) /* Chrome10+,Safari5.1+ */;
+  background: -o-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%) /* Opera 12+ */;
+  background: -ms-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%) /* IE10+ */;
+  background: radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%) /* W3C */;
+}
+h2 {
+  margin: 0 0 6px 0;
+  font-weight: bold;
+}
+h6 {
+  margin: 2px 0 20px 0;
+}
+hr {
+  margin: 14px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+}
+ul {
+  margin: 4px 0 0 0;
+}
+label,
+h6 {
+  color: #808080;
+  font-size: 13px;
+  font-weight: normal;
+  text-shadow: -1px 1px 0 #fff;
+}
+.well {
+  background: #f8f8f8;
+  margin-bottom: 0;
+}
+.well .tab-title {
+  float: left;
+  margin-left: 10px;
+}
+.well .button-top-right {
+  float: right;
+  margin: 0 10px 20px 0;
+}
+.navbar-btn {
+  margin-right: 8px;
+  min-width: 100px;
+}
+.navbar-btn .btn {
+  min-width: 100px;
+}
+.glyphicon {
+  margin-right: 8px;
+}
+/*
+	login window
+*/
+#login label {
+  margin-left: 2px;
+}
+#login form {
+  width: 320px;
+}
+#login .controls {
+  margin-top: 20px;
+}
+#login .controls .button-rememember-me {
+  float: left;
+  width: 150px;
+}
+#login .controls .button-sign-in {
+  float: right;
+  width: 120px;
+}
+
+#consent label {
+  margin-left: 2px;
+}
+#consent form {
+  width: 320px;
+}
+#consent .controls {
+  margin-top: 20px;
+}
+#consent .controls .button-reject {
+  float: left;
+  width: 150px;
+}
+#consent .controls .button-accept {
+  float: right;
+  width: 120px;
+}
+
+#login .btm-links {
+  font-size: 0.9em;
+  margin: 2px 0 0 0;
+}
+#login .btm-links #forgot-password {
+  float: left;
+  margin-left: 10px;
+}
+#login .btm-links #create-account {
+  float: right;
+  margin-right: 5px;
+}
+
+
+
+#account-form-container form {
+  width: 460px;
+}
+/*
+	modal windows
+*/
+.modal .modal-dialog {
+  width: 480px;
+}
+.modal .form-group {
+  margin-bottom: 0px;
+}
+.modal .alert {
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 8px 15px 8px 15px;
+}
+.modal .alert-dismissable,
+.modal .close {
+  right: -4px;
+}
+.modal p {
+  margin: 0;
+  padding: 0;
+}
+.modal .modal-footer button {
+  width: 80px;
+}
+.center-vertical {
+  height: 100vh;
+}
+.center-vertical form {
+  top: 50%;
+  margin: auto;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.form-horizontal .form-buttons {
+  float: right;
+}
+.form-horizontal .form-buttons .btn {
+  width: 80px;
+  margin-left: 6px;
+}
+.form-horizontal input,
+.form-horizontal select {
+  height: 30px;
+}

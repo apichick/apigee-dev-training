@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+    <id>@bookId</id>
+    <price>$18.2</price>
+    <publisher>Penguin</publisher>
+    <title>Northanger Abbey</title>
+    <year>1814</year>
+</book>

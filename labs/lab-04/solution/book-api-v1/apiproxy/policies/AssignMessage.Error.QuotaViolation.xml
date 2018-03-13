@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.Error.QuotaViolation">
+    <AssignVariable>
+        <Name>flow.error.message</Name>
+        <Value>Too many requests</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.code</Name>
+        <Value>429.01.002</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.status</Name>
+        <Value>429</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.info</Name>
+        <Value>http://documentation</Value>
+    </AssignVariable>
+</AssignMessage>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.GenerateAccessTokenImplicit">
+    <AssignTo createNew="false" transport="http" type="response"/>
+    <Set>
+        <Payload>{
+    "access_token": "{oauthv2accesstoken.OAuthV2.GenerateAccessTokenImplicit.access_token}",
+    "token_type": "bearer",
+    "expires_in": {oauthv2accesstoken.OAuthV2.GenerateAccessTokenImplicit.expires_in},
+    "issued_at": {oauthv2accesstoken.OAuthV2.GenerateAccessTokenImplicit.issued_at},
+    "scope": "{oauthv2accesstoken.OAuthV2.GenerateAccessTokenImplicit.scope}"
+}</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+</AssignMessage>
