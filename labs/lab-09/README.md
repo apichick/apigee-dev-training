@@ -18,9 +18,10 @@ NOTE: Windows users, please use PowerShell for the steps that require command li
 
 We will take as a starting point the solution from lab 02
 
-1. Create a folder called test in your file system
+1. Create a folder called test in your file system and change to it
 
         $ mkdir test
+        $ cd test
 
 2. Initialize and install the dependencies
 
@@ -29,7 +30,7 @@ We will take as a starting point the solution from lab 02
 
 3. Create a sub-folder named features inside the test folder
 
-        $ mkdir test/features
+        $ mkdir features
 
 4. Add a file named book-api-v1.feature inside the features folder that you just created with the following contents
 
