@@ -51,6 +51,15 @@ NOTE: Windows users, please use the Git Bash shell whenever you need to run a co
 
 * [apimocker](https://github.com/gstroup/apimocker)
 
+### Microgateway
+
+* [edgemicro-k8](https://github.com/edgemicro-kubernetes/edgemicro-k8)
+
+### CI/CD
+
+* [Jenkins Multibranch Pipeline](https://github.com/apichick/apigee-ci-cd-demo)
+* [API Proxy used in Jenkins job](https://github.com/apichick/book-api-v1)
+
 ### Community Articles
 
 * [Forming an API Test Strategy - Where to Start](https://community.apigee.com/articles/16169/forming-an-api-test-strategy-where-to-start.html)
