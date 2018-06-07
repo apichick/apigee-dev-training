@@ -37,13 +37,11 @@ Objectives:
 
 4. Add the policy in the &lt;Response&gt; element of the contional flow that was added previously to the proxy endpoint.
 
-5. Add the identity-api-v1 API proxy to the BookAPIProduct API product included in your developer app.
-
-6. Get an access token using the following request
+5. Get an access token using the following request
 
         curl -v -u CONSUMER_KEY:CONSUMER_SECRET -d "grant_type=client_credentials" https://ORGANIZATION-ENVIRONMENT.apigee.net/identity/v1/token
 
-7. Optional: Add proper error handling following the approach learnt in lab 1.02. Some of the fault to handle will be: What if the send us invalid client credentials?
+6. Optional: Add proper error handling following the approach learnt in lab 1.02. Some of the fault to handle will be: What if the send us invalid client credentials?
 
 ### Verify Access Token
 
