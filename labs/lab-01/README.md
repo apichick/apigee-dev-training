@@ -17,7 +17,7 @@ This is the first lab of the Apigee Developer Training. The main objectives of t
 
     ![Login](images/login.png)
 
-2. Once you are successfully logged in, click **Develop > Specs** on the left menu and save the Book API (v1) OpenAPI specification available [here](https://raw.githubusercontent.com/apichick/apigee-dev-training-labs/master/labs/lab-1.01/specs/book-api-v1-spec.json) to your computer and edit it to set the host to APIGEE_ORGANIZATION-APIGEE_ENVIRONMENT.apigee.net. Then import the specification from the file system.
+2. Once you are successfully logged in, click **Develop > Specs** on the left menu and save the Book API (v1) OpenAPI specification available [here](https://raw.githubusercontent.com/apichick/apigee-dev-training/master/labs/lab-01/specs/book-api-v1-spec.json) to your computer and edit it to set the host to APIGEE_ORGANIZATION-APIGEE_ENVIRONMENT.apigee.net. Then import the specification from the file system.
 
     ![Import specification](images/import-spec.png)
 
