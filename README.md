@@ -67,3 +67,4 @@ NOTE: Windows users, please use the Git Bash shell whenever you need to run a co
 * [Best Practices for Defining an API Specification](https://community.apigee.com/articles/15459/best-practices-for-defining-an-api-specification.html)
 * [Forming an API Monitoring Strategy - Where to Start](https://community.apigee.com/articles/17862/forming-an-api-monitoring-strategy-where-to-start.html)
 * [How have you setup your Org/Env combos?](https://community.apigee.com/questions/22800/how-have-you-setup-your-orgenv-combos.html)
+* [Apigee API Platform Learning Guide](https://community.apigee.com/articles/56382/apigee-api-platform-learning-guide.html)
