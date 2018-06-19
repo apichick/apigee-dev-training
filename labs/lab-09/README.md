@@ -12,7 +12,7 @@ The following software needs to be installed in your machine:
 
 * Node.js (latest LTS version)
 
-NOTE: Windows users, please use PowerShell for the steps that require command line.
+NOTE: Windows users, please use Git bash for the steps that require command line.
 
 ## Instructions
 
