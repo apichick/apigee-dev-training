@@ -187,7 +187,6 @@ Let's raise a 404 Not Found HTTP error in case the client requests an invalid pa
                 </Step>
                 <Step>
                     <Name>RaiseFault.GoToFaultRules</Name>
-                    <Condition>flow.error.code != NULL</Condition>
                 </Step>
             </Request>
         </Flow>
