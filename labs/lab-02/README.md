@@ -53,7 +53,7 @@ We will take as starting point the solution of Lab 01.
         </AssignVariable>
       </AssignMessage>
 
-* Add the following DefaultFaultRule in the API ProxyEndpoint and TargetEndpoint:
+* Add the following DefaultFaultRule directy inside the XML root element of ProxyEndpoint and TargetEndpoint:
 
       <DefaultFaultRule>
           <AlwaysEnforce>true</AlwaysEnforce>
