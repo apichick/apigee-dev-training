@@ -29,7 +29,7 @@ This is the first lab of the Apigee Developer Training. The main objectives of t
 
     ![Select API proxy type](images/select-api-proxy-type.png)
 
-5. Enter the proxy details (name, base path, target URL and description) on the **Details** screen. The url is https://apigee-dev-training.appspot.com/library/v1. Once you are ready jump to the next screen.
+5. Enter the proxy details (name, base path, target URL and description) as shown on the screenshot below in the **Details** section. The url is https://apigee-dev-training.appspot.com/library/v1. Once you are ready jump to the next screen.
 
     ![Enter API proxy details](images/enter-api-proxy-details.png)
 
