@@ -213,7 +213,7 @@ Finally, we are going to protect our API usign an API key. The API key will have
 
 The first thing to do is to click on **Publish** on the left menu and follow the steps below:
 
-1. Create an API product named BookAPIProduct that includes the book-api-v1 proxy and is available in the test environment. Set the callback URL to http://localhost
+1. Create an API product named BookAPIProduct that includes the book-api-v1 proxy and is available in the test environment. 
 
     ![Add API product](images/add-apiproduct.png)
 
@@ -221,7 +221,7 @@ The first thing to do is to click on **Publish** on the left menu and follow the
 
     ![Add developer](images/add-developer.png)
 
-3. Create a Developer app named BookApp for the developer created in the previous step, assign the BookAPIProduct to it and the click on the **Save** button. Go back inside the API product and you will see that a set of client credentials have been created. The consumer key is the value that you will have to set the apikey querystring parameter to.
+3. Create a Developer app named BookApp for the developer created in the previous step, assign the BookAPIProduct to it, set the callback URL to http://localhost and then click on the **Save** button. Go back inside the API product and you will see that a set of client credentials have been created. The consumer key is the value that you will have to set the apikey querystring parameter to.
 
     ![Add developer app](images/add-developer-app.png)
 
