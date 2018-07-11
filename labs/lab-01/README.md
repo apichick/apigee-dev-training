@@ -37,7 +37,7 @@ This is the first lab of the Apigee Developer Training. The main objectives of t
 
     ![Select API proxy flows](images/select-api-proxy-flows.png)
 
-7. Check **Pass through (none)** on the **Security** and  screen and continue.
+7. Check **Pass through (none)** for **Security** and **Add CORS Headers** on this screen and continue.
 
     ![Select API proxy security](images/select-api-proxy-security.png)
 
@@ -76,14 +76,14 @@ to get the clean JSON payload defined in the OpenAPI specification. In order to 
 
 2. Make sure that the XMLToJSON policy is configured as follows in the XML code editor:
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <XMLToJSON async="false" continueOnError="false" enabled="true" name="XMLToJSON">
-            <Options>
-                <RecognizeNumber>false</RecognizeNumber>
-            </Options>
-            <OutputVariable>response</OutputVariable>
-            <Source>response</Source>
-        </XMLToJSON>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <XMLToJSON async="false" continueOnError="false" enabled="true" name="XMLToJSON">
+           <Options>
+               <RecognizeNumber>false</RecognizeNumber>
+           </Options>
+           <OutputVariable>response</OutputVariable>
+           <Source>response</Source>
+       </XMLToJSON>
 
 3. On the right side of the screen click on **PreFlow** inside the target endpoint called **default**. 
 
@@ -103,21 +103,20 @@ to get the clean JSON payload defined in the OpenAPI specification. In order to 
 
 7. Find below the contents of the Javascript resource file transformJSON.js. You only need to click transformJSON.js under ***Scripts* on the right hand side to update the contents of script.
 
-        var pathsuffix = context.getVariable('proxy.pathsuffix');
-        var payload = JSON.parse(context.getVariable('response.content'));
-        if(new RegExp('^/books(/search)*$').test(pathsuffix)) {
-            print(Array.isArray(payload.books.book));
-            if(Array.isArray(payload.books.book)) {
-                payload = payload.books.book;        
-            } else {
-                payload = [ payload.books.book ];
-            }    
-        } else if(new RegExp('^/books/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$').test(pathsuffix)) {
-            payload = payload.book;
-        } else {
-            payload = '';
-        }
-        context.setVariable('response.content', JSON.stringify(payload));     
+       var pathsuffix = context.getVariable('proxy.pathsuffix');
+       var payload = JSON.parse(context.getVariable('response.content'));
+       if(new RegExp('^/books(/search)*$').test(pathsuffix)) {
+           if(Array.isArray(payload.books.book)) {
+               payload = payload.books.book;        
+           } else {
+               payload = [ payload.books.book ];
+           }    
+       } else if(new RegExp('^/books/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$').test(pathsuffix)) {
+           payload = payload.book;
+       } else {
+           payload = '';
+       }
+       context.setVariable('response.content', JSON.stringify(payload));     
 
     ![Update script contents](images/update-script-contents.png)
 
@@ -137,16 +136,16 @@ To improve the performance of our API we are going to introduce response caching
 
     ![Add ResponseCache policy](images/add-ResponseCache-policy.png)
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <ResponseCache async="false" continueOnError="false" enabled="true" name="ResponseCache">
-            <CacheKey>
-                <KeyFragment ref="message.uri" />
-            </CacheKey>
-            <CacheResource>book-api-v1-response-cache</CacheResource>
-            <ExpirySettings>
-                <TimeoutInSec>600</TimeoutInSec>
-            </ExpirySettings>
-        </ResponseCache>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <ResponseCache async="false" continueOnError="false" enabled="true" name="ResponseCache">
+           <CacheKey>
+               <KeyFragment ref="message.uri" />
+           </CacheKey>
+           <CacheResource>book-api-v1-response-cache</CacheResource>
+           <ExpirySettings>
+               <TimeoutInSec>600</TimeoutInSec>
+           </ExpirySettings>
+       </ResponseCache>
 
 2. The ResponseCache policy has to be always added in the request and the response flows to work properly. Drag the policy and add it to the &lt;Request&gt; element of the PreFlow in the ProxyEndpoint and to the &lt;Response&gt; element of the PreFlow in the TargetEndpoint. We want to cache the response once it has been transformed from XML to JSON, so we will add it just after Javascript policy.
 
@@ -176,16 +175,16 @@ Once the key-value map is created and populated with the entries, we need to add
 
     ![Add KeyValueMapOperations policy](images/add-KeyValueMapOperations-policy.png)
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KeyValueMapOperations.ReadConfiguration" mapIdentifier="book-api-v1-configuration">
-            <Scope>environment</Scope>
-            <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
-            <Get assignTo="config.cacheEntryExpiry">
-                <Key>
-                    <Parameter>cacheEntryExpiry</Parameter>
-                </Key>
-            </Get>
-        </KeyValueMapOperations>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KeyValueMapOperations.ReadConfiguration" mapIdentifier="book-api-v1-configuration">
+           <Scope>environment</Scope>
+           <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+           <Get assignTo="config.cacheEntryExpiry">
+               <Key>
+                   <Parameter>cacheEntryExpiry</Parameter>
+               </Key>
+           </Get>
+       </KeyValueMapOperations>
 
 2. Drag the policy that you just created and add it as first step to the &lt;Request&gt; element of the PreFlow in the ProxyEndpoint. 
 
@@ -193,17 +192,17 @@ Once the key-value map is created and populated with the entries, we need to add
 
 3. Edit the ResponseCache policy so the configuration.cacheEntryExpiry variable is used in the cache entry expiry settings:
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <ResponseCache async="false" continueOnError="false" enabled="true" name="ResponseCache">
-            <CacheKey>
-                <KeyFragment ref="message.uri" />
-            </CacheKey>
-            <CacheResource>book-api-v1-response-cache</CacheResource>
-            <ExpirySettings>
-                <TimeoutInSec ref="config.cacheKeyExpiry">600</TimeoutInSec>
-            </ExpirySettings>
-            <ExcludeErrorResponse>true</ExcludeErrorResponse>
-        </ResponseCache>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <ResponseCache async="false" continueOnError="false" enabled="true" name="ResponseCache">
+           <CacheKey>
+               <KeyFragment ref="message.uri" />
+           </CacheKey>
+           <CacheResource>book-api-v1-response-cache</CacheResource>
+           <ExpirySettings>
+               <TimeoutInSec ref="config.cacheKeyExpiry">600</TimeoutInSec>
+           </ExpirySettings>
+           <ExcludeErrorResponse>true</ExcludeErrorResponse>
+       </ResponseCache>
 
 Check that everything is still working properly. 
 
@@ -231,10 +230,10 @@ Once all this is done, we need to add a [VerifyAPIKey](https://docs.apigee.com/a
 
     ![Add VerifyAPIKey policy](images/add-VerifyAPIKey-policy.png)
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <VerifyAPIKey async="false" continueOnError="false" enabled="true" name="VerifyAPIKey">
-            <APIKey ref="request.queryparam.apikey"/>
-        </VerifyAPIKey>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <VerifyAPIKey async="false" continueOnError="false" enabled="true" name="VerifyAPIKey">
+           <APIKey ref="request.queryparam.apikey"/>
+       </VerifyAPIKey>
 
 2. Add it as a second step to the &lt;Request&gt; element of the proxy PreFlow in the ProxyEndpoint, just after the KeyValueMapOperations.ReadConfiguration policy.
 
@@ -244,15 +243,15 @@ Once all this is done, we need to add a [VerifyAPIKey](https://docs.apigee.com/a
 
     ![Add AssignMessage policy](images/add-AssignMessage-policy.png)
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.RemoveAPIKey">
-            <AssignTo createNew="false" transport="http" type="request"/>
-            <Remove>
-                <QueryParams>
-                    <QueryParam name="apikey"/>
-                </QueryParams>
-            </Remove>
-        </AssignMessage>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.RemoveAPIKey">
+           <AssignTo createNew="false" transport="http" type="request"/>
+           <Remove>
+               <QueryParams>
+                   <QueryParam name="apikey"/>
+               </QueryParams>
+           </Remove>
+       </AssignMessage>
 
 4. Add the policy just created to the &lt;Request&gt; element of the proxy PreFlow in the ProxyEndpoint after the VerifyAPIKey policy.
 
@@ -309,7 +308,5 @@ Use the Trace tool to see if everything works fine when submitting requests with
 13. Click on the **APIs** menu on the top bar and select the API product, so you can see the API documentation.
 
     ![View API documentation](images/view-api-documentation.png)
-
-13. To be able to try out the API using the sandbox in the developer portal, we will need to add CORS support to our API proxy. You just need to go to back to the **Develop** tab in your API proxy and do the three following things:
 
 14. Click on the **Authorize** button and enter your API key. The select one of the available path and click on **Try it out**.

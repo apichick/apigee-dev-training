@@ -109,7 +109,7 @@ We will take the solution available for lab 03 as starting point and follow the 
 
 ### Quota
 
-1. Fist, go to **Publish > API Products**, edit the product that you are using and set up the quota there. For demonstration purposes, so we can see the quota being violated, we will only allow 4 requests per minute. Make sure that the test environment is checked for that product.
+1. First, go to **Publish > API Products**, edit the product that you are using and set up the quota there. For demonstration purposes, so we can see the quota being violated, we will only allow 4 requests per minute. Make sure that the test environment is checked for that product.
 
 2. Then add a new Quota policy with the following XML content:
 
@@ -154,7 +154,7 @@ We will take the solution available for lab 03 as starting point and follow the 
 
 4. Go to the trace tool and click on "Start Trace Session". Open a new terminal and start sending requests using the command below. Eventually you will see that the Quota policy raises a fault. Write down the name of the fault raised.
 
-        $ curl -v -u https://ORGANIZATION-ENVIRONMENT.apigee.net/v1/books/book?apikey=APIKEY
+        $ curl -v https://ORGANIZATION-ENVIRONMENT.apigee.net/v1/books/book?apikey=APIKEY
     
 5. We have to add proper fault handling for the fault raised by the SpikeArrest policy. Create a new AssignMessage policy with the following XML contents:
 

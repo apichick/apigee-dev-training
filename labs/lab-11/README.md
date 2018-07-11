@@ -88,13 +88,13 @@ The following software needs to be installed in your machine:
 
 9. Create a file called app.js inside mock-api-v1/apiproxy/resources/node/app.js with the following contents:
 
-    var ApiMocker = require('apimocker');
-            
-    var options = {};
+        var ApiMocker = require('apimocker');
+                
+        var options = {};
 
-    var apiMocker = ApiMocker.createServer(options)
-        .setConfigFile('config.json')
-        .start();
+        var apiMocker = ApiMocker.createServer(options)
+            .setConfigFile('config.json')
+            .start();
 
     This will be the entry point of your app.
 
