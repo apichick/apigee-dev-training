@@ -148,4 +148,4 @@ The next thing for us to do to complete this lab will be to create a plugin that
 
 7. Make a request a check that the payload returned in JSON.
 
-        $ curl -v -H'Authorization: ACCESS_TOKEN' http://localhost:8000/book/v1/books
+        $ curl -v -H'Authorization: Bearer ACCESS_TOKEN' http://localhost:8000/book/v1/books
