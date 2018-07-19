@@ -42,7 +42,7 @@ The following software needs to be installed in your machine:
             </RouteRule>
         </ProxyEndpoint>
 
-5. Create the descriptor default.xml for the TargetEndpoint that we were referencing in the ProxyEndpoint descriptor. In our case the TargetEndpoint will be a Node.js application. Add an XML file with the following contents to the mock-api/v1/apiproxy/targets directory.
+5. Create the descriptor default.xml for the TargetEndpoint that we were referencing in the ProxyEndpoint descriptor. In our case the TargetEndpoint will be a Node.js application. Add an XML file with the following contents to the mock-api-v1/apiproxy/targets directory.
 
         <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <TargetEndpoint name="default">
