@@ -31,25 +31,25 @@ The following software needs to be installed in your machine:
 
 4. Create the ProxyEndpoint descriptor default.xml inside mock-api-v1/apiproxy/proxies directory with the content below:
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <ProxyEndpoint name="default">
-            <HTTPProxyConnection>
-                <BasePath>/mock/v1</BasePath>
-                <VirtualHost>secure</VirtualHost>
-            </HTTPProxyConnection>
-            <RouteRule name="default">
-                <TargetEndpoint>default</TargetEndpoint>
-            </RouteRule>
-        </ProxyEndpoint>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <ProxyEndpoint name="default">
+           <HTTPProxyConnection>
+               <BasePath>/mock/v1</BasePath>
+               <VirtualHost>secure</VirtualHost>
+           </HTTPProxyConnection>
+           <RouteRule name="default">
+               <TargetEndpoint>default</TargetEndpoint>
+           </RouteRule>
+       </ProxyEndpoint>
 
 5. Create the descriptor default.xml for the TargetEndpoint that we were referencing in the ProxyEndpoint descriptor. In our case the TargetEndpoint will be a Node.js application. Add an XML file with the following contents to the mock-api-v1/apiproxy/targets directory.
 
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <TargetEndpoint name="default">
-            <ScriptTarget>
-                <ResourceURL>node://app.js</ResourceURL>
-            </ScriptTarget>
-        </TargetEndpoint>
+       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+       <TargetEndpoint name="default">
+           <ScriptTarget>
+               <ResourceURL>node://app.js</ResourceURL>
+           </ScriptTarget>
+       </TargetEndpoint>
 
 6. The next step will be to initialize our Node.js app inside mock-api-v1/apiproxy/resources/node directory and install the required node dependencies.
 
