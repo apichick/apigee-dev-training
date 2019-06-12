@@ -1,10 +1,10 @@
-# Lab 02 - Advanced Error Handling 
+# Lab 02 - Advanced Error Handling
 
 ## Introduction
 
 The objectives of this lab are listed below:
 
-* Implement the required steps in the API proxy DefaultFaultRule to build the error response and send it back to the client. 
+* Implement the required steps in the API proxy DefaultFaultRule to build the error response and send it back to the client.
 * Set up the required FaultRules to catch all the error conditions raised by the  Apigee policies and populate the runtime variables required to build the error response.
 * Learn how to raise your own errors in the API proxy.
 
@@ -66,11 +66,13 @@ We will take as starting point the solution of Lab 01.
           </Step>
       </DefaultFaultRule>
 
+For debugging purpose, you can remove those lines, the error message will be sent clear to your client.
+
 ### Catching errors raised by Apigee policies
 
-If we leave things as they are, we will get an 500 Internal Server Error, each time an Apigee policy that has been set with continueOnError="false" raises an error. In order to avoid this, we will have to add FaultRules for the different error conditions that policies might raise. 
+If we leave things as they are, we will get an 500 Internal Server Error, each time an Apigee policy that has been set with continueOnError="false" raises an error. In order to avoid this, we will have to add FaultRules for the different error conditions that policies might raise.
 
-In our example, we will have to add a new FaultRule in case the API key supplied in the request is missing or invalid. In this fault rule we will be assigning the values of the variables required to build the error response accordingly. 
+In our example, we will have to add a new FaultRule in case the API key supplied in the request is missing or invalid. In this fault rule we will be assigning the values of the variables required to build the error response accordingly.
 
 * FaultRule
 
@@ -106,7 +108,7 @@ In our example, we will have to add a new FaultRule in case the API key supplied
 
 ### Raising errors
 
-In this section we will explain how to raise errors ourselves. 
+In this section we will explain how to raise errors ourselves.
 
 #### Validation of incoming request fails
 
@@ -190,4 +192,3 @@ Let's raise a 404 Not Found HTTP error in case the client requests an invalid pa
                 </Step>
             </Request>
         </Flow>
-
