@@ -16,7 +16,7 @@
     "express": "^4.16.3",
     "lodash": "^4.17.10",
     "pretty-data": "^0.40.0",
-    "xmldom": "^0.1.27",
+    "xmldom": "^0.6.0",
     "xpath": "0.0.27"
   },
   "devDependencies": {
